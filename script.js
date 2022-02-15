@@ -30,6 +30,7 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "scissors") {
         return "It's a draw! Try again. ¯\_(ツ)_/¯"
     }
+    else return "That is not a valid input, stop cheating! (; ･`д･´)​"
 }
 
 // Function incomplete
@@ -39,7 +40,7 @@ function game() {
     }
 }
 
-const playerSelection = "rock";
+const playerSelection = "swag";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
