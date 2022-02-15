@@ -12,25 +12,41 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == "rock" && computerSelection == "paper") {
-        return "Sorry, pardner, you lose! Paper beats Rock."
+        return "Sorry, you lose! Paper beats Rock. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
-        return "Congrats, pardner, you win! Rock beats Scissors."
+        return "You win! Rock beats Scissors. ᕕ( ᐛ )ᕗ"
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "rock") {
-        return "Well I'll be! It's a draw! Try again."
+        return "It's a draw! Try again. ¯\_(ツ)_/¯"
     } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
-        return "Congrats, pardner, you win! Paper beats Scissors."
+        return "You win! Paper beats Scissors. ᕕ( ᐛ )ᕗ"
     } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "paper") {
-        return "Well I'll be! It's a draw! Try again."
+        return "It's a draw! Try again. ¯\_(ツ)_/¯"
     } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
-        return "Sorry, pardner, you lose! Scissors beats Paper."
+        return "Sorry, you lose! Scissors beats Paper. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock") {
-        return "Sorry, pardner, you lose! Rock beats Scissors."
+        return "Sorry, you lose! Rock beats Scissors. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
-        return "Congrats, pardner, you win! Scissors beats Paper."
+        return "You win! Scissors beats Paper. ᕕ( ᐛ )ᕗ"
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "scissors") {
-        return "Well I'll be! It's a draw! Try again."
+        return "It's a draw! Try again. ¯\_(ツ)_/¯"
     }
 }
-const playerSelection = "scissors";
+
+// Function incomplete
+function game() {
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
+}
+
+const playerSelection = "rock";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
+
+/* Use "game" function to play five rounds
+If player wins, print a win message; if player loses, print lose message; if a draw, print draw message
+Start from base count Wins: 0 and Losses: 0
+If player wins, add 1 to Wins; if player loses, add 1 to losses
+A draw does not add to win or loss count, but still counts as a round played
+After 5 rounds played, display final win/loss count with final message
+*/
