@@ -15,19 +15,18 @@ function playRound(playerSelection, computerSelection) {
         return "Sorry, you lose! Paper beats Rock. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "scissors") {
         return "You win! Rock beats Scissors. ᕕ( ᐛ )ᕗ"
-    } else if (playerSelection.toLowerCase() == "rock" && computerSelection == "rock") {
-        return "It's a draw! Try again. ¯\_(ツ)_/¯"
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
-        return "You win! Paper beats Scissors. ᕕ( ᐛ )ᕗ"
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "paper") {
-        return "It's a draw! Try again. ¯\_(ツ)_/¯"
-    } else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
+    } 
+    else if (playerSelection.toLowerCase() == "paper" && computerSelection == "rock") {
+        return "You win! Paper beats Rock. ᕕ( ᐛ )ᕗ"
+    } 
+    else if (playerSelection.toLowerCase() == "paper" && computerSelection == "scissors") {
         return "Sorry, you lose! Scissors beats Paper. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "rock") {
         return "Sorry, you lose! Rock beats Scissors. (┛✧Д✧))┛彡┻━┻"
     } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "paper") {
         return "You win! Scissors beats Paper. ᕕ( ᐛ )ᕗ"
-    } else if (playerSelection.toLowerCase() == "scissors" && computerSelection == "scissors") {
+    } 
+    else if (playerSelection.toLowerCase() == computerSelection) {
         return "It's a draw! Try again. ¯\_(ツ)_/¯"
     }
     else return "That is not a valid input, stop cheating! (; ･`д･´)​"
@@ -40,7 +39,7 @@ function game() {
     }
 }
 
-const playerSelection = "swag";
+const playerSelection = "rock";
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection));
 
