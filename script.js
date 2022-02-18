@@ -1,12 +1,12 @@
 function computerPlay() {
-    let number = Math.floor(Math.random()*3);
-    if (number == 0) {
+    let number = Math.floor(Math.random()*3) + 1;
+    if (number == 1) {
         return "rock";
     }
-    else if (number == 1) {
+    else if (number == 2) {
         return "paper";
     }
-    else (number == 2) 
+    else (number == 3) 
         return "scissors";
     }
 
