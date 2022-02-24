@@ -1,5 +1,5 @@
 function computerPlay() {
-    let number = Math.floor(Math.random()*3) + 1;
+    const number = Math.floor(Math.random()*3) + 1;
     if (number == 1) {
         return "rock";
     }
@@ -10,39 +10,58 @@ function computerPlay() {
         return "scissors";
     }
 
+function playerPlay() {
+  const playerInput = prompt('Rock, Paper, or Scissors?').toLowerCase();
+  return playerInput;
+}
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection == "rock" && computerSelection == "paper") {
-        return "Sorry, you lose! Paper beats Rock. (┛✧Д✧))┛彡┻━┻"
-    } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "You win! Rock beats Scissors. ᕕ( ᐛ )ᕗ"
-    } 
-    else if (playerSelection == "paper" && computerSelection == "rock") {
-        return "You win! Paper beats Rock. ᕕ( ᐛ )ᕗ"
-    } 
-    else if (playerSelection == "paper" && computerSelection == "scissors") {
-        return "Sorry, you lose! Scissors beats Paper. (┛✧Д✧))┛彡┻━┻"
-    } else if (playerSelection == "scissors" && computerSelection == "rock") {
-        return "Sorry, you lose! Rock beats Scissors. (┛✧Д✧))┛彡┻━┻"
-    } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "You win! Scissors beats Paper. ᕕ( ᐛ )ᕗ"
-    } 
-    else if (playerSelection == computerSelection) {
-        return "It's a draw! Try again. ¯\_(ツ)_/¯"
-    }
-    else return "That is not a valid input, stop cheating! (; ･`д･´)​"
+  if (playerSelection == computerSelection) {
+    return "draw";
+  } else if (playerSelection == "rock") {
+    if (computerSelection == "scissors") {
+      return "player wins";
+    } else return "computer wins";
+  } else if (playerSelection == "paper") {
+    if (computerSelection == "rock") {
+      return "player wins";
+    } else return "computer wins";
+  } else if (playerSelection == "scissors") {
+    if (playerSelection == "paper") {
+      return "player wins";
+    } else return "computer wins";
+  } 
 }
 
-// Function incomplete
-function game() {
-    for (let i = 0; i < 5; i++) {
-        playRound();
-    }
-}
-
-const playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase();
+const playerSelection = playerPlay();
 const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+
+let playerScore = 0;
+let computerScore = 0;
+
+function game() {
+  //for (let i = 0; i < 5; i++) {
+  
+  let result = playRound(playerSelection, computerSelection);
+  
+  if (result == "player wins") {
+    playerScore++;
+    console.log(`You win, ${playerSelection} beats ${computerSelection}! ᕕ( ᐛ )ᕗ `);
+    console.log(`Your Score: ${playerScore}; Computer's Score: ${computerScore}`);
+  } else if (result == "computer wins") {
+    computerScore++;
+    console.log(`You lose, ${computerSelection} beats ${playerSelection}! (┛✧Д✧))┛彡┻━┻`);
+    console.log(`Your Score: ${playerScore}; Computer's Score: ${computerScore}`);
+  } else if (result == "draw") {
+    console.log("It's a draw! Try again. ¯\_(ツ)_/¯");
+    console.log(`Your Score: ${playerScore}; Computer's Score: ${computerScore}`);
+  } else console.log("That is not a valid input, stop cheating! (; ･`д･´)​");
+        console.log(`Your Score: ${playerScore}; Computer's Score: ${computerScore}`);
+}
+//}
+game();
+
+
 
 /* Use "game" function to play five rounds
 If player wins, print a win message; if player loses, print lose message; if a draw, print draw message
