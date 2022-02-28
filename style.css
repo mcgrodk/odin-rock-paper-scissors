@@ -1,14 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 * {
     text-align: center;
 }
 
-.img-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-img {
-    width: 30%;
-    height: auto;
+h1 {
+    font-family: "Lobster", sans-serif;
 }
