@@ -12,12 +12,25 @@ h1 {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-bottom: 2rem;
 }
 
 img {
     width: 200px;
     height: auto;
 }
+
+
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    padding: 0.5rem;
+}
+
 
 @media (max-width: 700px) {
 img {

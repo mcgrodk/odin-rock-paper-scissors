@@ -1,4 +1,3 @@
-// Generates random number to determine computer's each round
 function computerPlay() {
   const number = Math.floor(Math.random()*3) + 1;
   if (number == 1) {
@@ -11,19 +10,36 @@ function computerPlay() {
       return "scissors";
   }
 
-// Gets the player's choice for each round from text prompt
-function playerPlay() {
-const playerInput = prompt('Rock, Paper, or Scissors?').toLowerCase();
-return playerInput;
-}
-
 let playerScore = 0;
 let computerScore = 0;
 
-// Plays a single round between player and computer, then logs the win-loss-draw result
+// Add event listeners to each button
+// Clicked button value becomes playerSelection
+// From there, clicked button calls playRound function
+// playRound return value is logged to console
+
+let playerSelection;
+
+const rockBtn = document.querySelector('#rock-btn');
+rockBtn.addEventListener('click', () => {
+playerSelection = "rock";
+playRound();
+});
+
+const paperBtn = document.querySelector('#paper-btn');
+paperBtn.addEventListener('click', () => {
+  playerSelection = "paper";
+  console.log(playerSelection);
+});
+
+const scissorsBtn = document.querySelector('#scissors-btn');
+scissorsBtn.addEventListener('click', () => {
+  playerSelection = "scissors";
+  console.log(playerSelection);
+});
+
 function playRound(playerSelection, computerSelection) {
 
-playerSelection = playerPlay();
 computerSelection = computerPlay();
 
 if (playerSelection == computerSelection) {
@@ -35,9 +51,13 @@ if (playerSelection == computerSelection) {
   computerScore++;
   console.log(`You lose, ${computerSelection} beats ${playerSelection}! (┛✧Д✧))┛彡┻━┻ \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`);
 } else if (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors") {
-  console.log(`That is not a valid input, stop cheating! (; ･\`д･´) \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`)
+  console.log(`That is not a valid input, stop cheating! (; ･\`д･´) \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`);
 }
 }
+
+
+
+
 
 // Plays 5 rounds, then returns an alert with winner and results
 function game() {
@@ -51,4 +71,5 @@ if (playerScore > computerScore) {
 } else alert(`There's no winner here! Maybe try again? 「\(°ヘ°) \n Final Score: You: ${playerScore} | Computer: ${computerScore}`)
 }
 
-game();
+//game();
+
