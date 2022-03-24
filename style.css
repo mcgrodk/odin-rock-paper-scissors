@@ -1,11 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
-
 * {
     text-align: center;
+    font-family: monospace;
 }
 
 h1 {
-    font-family: "Lobster", sans-serif;
+    font-size: 2.5rem;
 }
 
 .img-container {
@@ -27,8 +26,10 @@ img {
     align-items: center;
 }
 
+/* Add button styles? */
 button {
     padding: 0.5rem;
+    font-family: sans-serif;
 }
 
 
@@ -36,4 +37,41 @@ button {
 img {
     max-width: 20%;
 }
+}
+
+p {
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+#scores-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.playerscore-div, .compscore-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.playerscore-div, .compscore-div, #player-score, #computer-score {
+    font-weight: 800;
+    font-size: 2rem;
+}
+
+#round-result {
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+}
+
+#winner-announcement {
+    margin-top: 4rem;
+    font-weight: 800;
+    font-size: 2rem;
 }
