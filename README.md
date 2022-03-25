@@ -1,2 +1,2 @@
 # odin-rock-paper-scissors
-A rock-paper-scissors game built with JavaScript. Initial project to be played in browser console; web page interaction to be added later.
+A rock-paper-scissors game built with JavaScript functions and event listeners. Early commits on this repo had a game playable only in the browser console, while the current version of the page has a user interface with clickable buttons and changing text content.
