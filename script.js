@@ -1,4 +1,16 @@
-// Generates random number to determine computer's each round
+const rockBtn = document.querySelector('#rock-btn');
+const paperBtn = document.querySelector('#paper-btn');
+const scissorsBtn = document.querySelector('#scissors-btn');
+const instructions = document.querySelector('#instructions');
+const roundResult = document.querySelector('#round-result');
+const playerPoints = document.querySelector('#player-points');
+const computerPoints = document.querySelector('#computer-points');
+const winnerAnnouncement = document.querySelector('#winner-announcement');
+const tryAgain = document.querySelector('#try-again');
+
+let playerScore = 0;
+let computerScore = 0;
+
 function computerPlay() {
   const number = Math.floor(Math.random()*3) + 1;
   if (number == 1) {
@@ -7,48 +19,61 @@ function computerPlay() {
   else if (number == 2) {
       return "paper";
   }
-  else (number == 3) 
-      return "scissors";
+  else return "scissors";
   }
+  
+rockBtn.addEventListener('click', () => {
+  instructions.textContent = '';
+  winnerAnnouncement.textContent = '';
+  tryAgain.textContent = '';
+  playRound('rock');
+});
 
-// Gets the player's choice for each round from text prompt
-function playerPlay() {
-const playerInput = prompt('Rock, Paper, or Scissors?').toLowerCase();
-return playerInput;
-}
+paperBtn.addEventListener('click', () => {
+  instructions.textContent = '';
+  winnerAnnouncement.textContent = '';
+  tryAgain.textContent = '';
+  playRound('paper');
+});
 
-let playerScore = 0;
-let computerScore = 0;
+scissorsBtn.addEventListener('click', () => {
+  instructions.textContent = '';
+  winnerAnnouncement.textContent = '';
+  tryAgain.textContent = '';
+  playRound('scissors');
+});
 
-// Plays a single round between player and computer, then logs the win-loss-draw result
 function playRound(playerSelection, computerSelection) {
 
-playerSelection = playerPlay();
 computerSelection = computerPlay();
 
 if (playerSelection == computerSelection) {
-  console.log(`It's a draw! Try again. ¯\_(ツ)_/¯ \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`);
+  roundResult.textContent = "It's a draw! Try again. ¯\_(ツ)_/¯";
+  playerPoints.textContent = `${playerScore}`;
+  computerPoints.textContent = `${computerScore}`;
 } else if (playerSelection == "rock" && computerSelection == "scissors" || playerSelection == "paper" && computerSelection == "rock" || playerSelection == "scissors" && computerSelection == "paper") {
+  roundResult.textContent = `You win, ${playerSelection} beats ${computerSelection}! ᕕ( ᐛ )ᕗ`;
   playerScore++;
-  console.log(`You win, ${playerSelection} beats ${computerSelection}! ᕕ( ᐛ )ᕗ \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`)
+  playerPoints.textContent = `${playerScore}`;
+  computerPoints.textContent = `${computerScore}`;
 } else if (playerSelection == "rock" && computerSelection == "paper" || playerSelection == "paper" && computerSelection == "scissors" || playerSelection == "scissors" && computerSelection == "rock") {
+  roundResult.textContent = `You lose, ${computerSelection} beats ${playerSelection}! (┛✧Д✧))┛彡┻━┻`;
   computerScore++;
-  console.log(`You lose, ${computerSelection} beats ${playerSelection}! (┛✧Д✧))┛彡┻━┻ \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`);
-} else if (playerSelection != "rock" || playerSelection != "paper" || playerSelection != "scissors") {
-  console.log(`That is not a valid input, stop cheating! (; ･\`д･´) \nYour Score: ${playerScore} | Computer's Score: ${computerScore}`)
-}
+  playerPoints.textContent = `${playerScore}`;
+  computerPoints.textContent = `${computerScore}`;
+} 
+
+if (playerScore == 5) {
+  winnerAnnouncement.textContent = "You're the Rock, Paper, Scissors champion! o(〃＾▽＾〃)o";
+  tryAgain.textContent = "Click a button to reset and try again!"
+  playerScore = 0;
+  computerScore = 0;
 }
 
-// Plays 5 rounds, then returns an alert with winner and results
-function game() {
-for (let i= 0; i < 5; i++) {
-  playRound();
+if (computerScore == 5) {
+  winnerAnnouncement.textContent = "You lost to the computer! How embarassing. ((´д｀))";
+  tryAgain.textContent = "Click a button to reset and try again!"
+  playerScore = 0;
+  computerScore = 0;
 }
-if (playerScore > computerScore) {
-  alert(`You\'re the Rock-Paper-Scissors champion! o͡͡͡͡͡͡͡͡͡͡͡͡͡͡╮(｡ᐤヮᐤ｡)╭o͡͡͡͡͡͡͡͡͡͡͡͡͡͡' \n Final Score: You: ${playerScore} | Computer: ${computerScore}`);
-} else if (playerScore < computerScore) {
-  alert(`You lost to the computer! How embarrassing. \(´Д｀) \n Final Score: You: ${playerScore} | Computer: ${computerScore}`);
-} else alert(`There's no winner here! Maybe try again? 「\(°ヘ°) \n Final Score: You: ${playerScore} | Computer: ${computerScore}`)
 }
-
-game();
