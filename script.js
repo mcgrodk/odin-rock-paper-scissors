@@ -1,6 +1,7 @@
 const rockBtn = document.querySelector('#rock-btn');
 const paperBtn = document.querySelector('#paper-btn');
 const scissorsBtn = document.querySelector('#scissors-btn');
+const instructions = document.querySelector('#instructions');
 const roundResult = document.querySelector('#round-result');
 const playerPoints = document.querySelector('#player-points');
 const computerPoints = document.querySelector('#computer-points');
@@ -22,18 +23,21 @@ function computerPlay() {
   }
   
 rockBtn.addEventListener('click', () => {
+  instructions.textContent = '';
   winnerAnnouncement.textContent = '';
   tryAgain.textContent = '';
   playRound('rock');
 });
 
 paperBtn.addEventListener('click', () => {
+  instructions.textContent = '';
   winnerAnnouncement.textContent = '';
   tryAgain.textContent = '';
   playRound('paper');
 });
 
 scissorsBtn.addEventListener('click', () => {
+  instructions.textContent = '';
   winnerAnnouncement.textContent = '';
   tryAgain.textContent = '';
   playRound('scissors');
